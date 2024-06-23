@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+ {% if message %}
+         <script> alert("{{ message }}")</script>
+     {% endif %}
+
+<header class="header-section">
+        <div class="container-fluid">
+            <div class="inner-header">
+                <div class="row">
+                    <div class="col-lg-2 col-md-2">
+                        <div class="logo">
+                            <a href="/" class="js-logo-clone" ><h3><b><font color="#82D026">MY GROUND</font></b></h3></font></a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </header>
+    <br>
+    <!-- Header End -->
+    <!-- Hero Section Begin -->
+    <div class="hero-section set-bg" data-setbg="img/contact-bg.jpg" style="background-image: url({% static 'img/contact-bg.jpg' %});">
+
+
+          <br>
+            <br>
+    <h1 align="center"><font color="white" >REGISTER AS A ?!</font></h1>
+
+    </div>
+
+    <section class="contact-section spad">
+        <div class="container">
+
+
+                <div class="col-lg-4 mx-auto order-lg-2 align-self-center">
+                  <form class="form-group" method="post" action="">
+                      {% csrf_token %}
+                  <div class="form-group row">
+                 <div class="col-md-12">
+                    <label for="category" class="text-black">Category <span class="text-danger">*</span></label>
+                    <div class="form-group row">
+                    <select class="form-control" required="" name="category" class="form-control">
+                      <option value="">Select category</option>
+                      <option value="1">User</option>
+                      <option value="2">Turf Owner</option>
+
+
+
+                    </select>
+                    </div>
+                  </div>
+                </div>
+                 <div class="col-md-12">
+                    <input type="submit"    class="btn primary-btn btn-lg btn-block" name="submit">
+                    <p align="center">
+                     <a href="/"><u><font color="red">Already Registered</font></u></a>
+                    </p>
+                </div>
+                  </form>
+              </div>
+            </div>
+    </section>
+
+{% endblock %}

@@ -1,0 +1,53 @@
+{% extends 'owner/owner_base.html' %}
+{% load static %}
+{% block content %}
+ {% if message %}
+         <script> alert("{{ message }}")</script>
+     {% endif %}
+
+    <div style="background-image: url({% static 'img/img2.jpg' %});" >
+    	<br>
+    	<br>
+    <section class="services-section spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-9 m-auto text-center">
+                    <div class="section-title">
+                        <h2>WElCOME</h2>
+
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+{#                <div class="col-lg-4 col-md-6">#}
+{#                    <div class="single-services">#}
+{#                        <a href="">#}
+{#                            <h4>PROFILE</h4>#}
+{##}
+{#                        </a>#}
+{#                    </div>#}
+{#                </div>#}
+                <div class="col-lg-4 col-md-6">
+                    <div class="single-services">
+                        <a href="ManageTurf">
+                        	  <h4>MANAGE SPOTS</h4>
+                        </a>
+
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="single-services">
+                       <a href="ViewTurfBooking">
+                        <h4>VIEW BOOKING</h4>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <br>
+    <br>
+    </div>
+
+{% endblock %}

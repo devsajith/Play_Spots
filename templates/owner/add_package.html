@@ -1,0 +1,56 @@
+{% extends 'owner/owner_base.html' %}
+{% load static %}
+{% block content %}
+ {% if message %}
+         <script> alert("{{ message }}")</script>
+     {% endif %}
+<div class="hero-section set-bg" data-setbg="{% static 'img/contact-bg.jpg'%}" style="background-image: url(&quot;img/contact-bg.jpg&quot;);">
+       <br>
+            <br>
+    <h1 align="center"><font color="white" >ADD PACKAGE</font></h1>
+    </div>
+   <div class="col-lg-4 mx-auto order-lg-2 align-self-center">
+
+                    <form action="" method="POST" class="contact-form"  enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="form-group row">
+                        <div class="col-md-12">
+                        <div class="row">
+                            <input type="hidden" name="tur" value="{{ id }}">
+                            <div class="col-lg-12">
+                                <input placeholder="Pack Description" required="" name="description">
+                            </div>
+
+
+
+
+                            <div class="col-lg-12">
+                                <input type="date" name="fdate" title="From Date" required="">
+                            </div>
+                            <div class="col-lg-12">
+                                <input type="date" name="tdate"  title="To Date" required="">
+                            </div>
+                            <div class="col-lg-12">
+                                <input type="Number" name="disc" placeholder="Discount Percentage" required="">
+                            </div>
+
+
+
+                            <div class="col-lg-12">
+                                <div align="center">
+                            <input type="submit" name="add" class="submit-btn contact-btn" value="ADD PACKAGE">
+                            <p>
+                    <a href="/owner"><u><font color="red">cancel</font></u></a>
+                    </p>
+                </div>
+
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </form>
+
+
+                </div>
+
+{% endblock %}

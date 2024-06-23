@@ -1,0 +1,104 @@
+{% extends 'user/user_base.html' %}
+{% load static %}
+{% block content %}
+ {% if message %}
+         <script> alert("{{ message }}")</script>
+     {% endif %}
+<div class="hero-section set-bg" data-setbg="{% static 'img/contact-bg.jpg'%}" style="background-image: url(&quot;img/contact-bg.jpg&quot;);">
+       <br>
+            <br>
+    <h1 align="center"><font color="white" >ADD STADIUM</font></h1>
+    </div>
+   <div class="col-lg-4 mx-auto order-lg-2 align-self-center">
+
+   <script>
+       function amount() {
+           var pr=document.getElementById("pr").value;
+           var no=document.getElementById("no").value;
+           t = pr*no;
+           document.getElementById("to").value=t;
+       }
+       function checkDate() {
+
+  var startDate = document.getElementById('mdate');
+  var today = new Date();
+var dd = String(today.getDate()).padStart(2, '0');
+var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+var yyyy = today.getFullYear();
+
+today = yyyy + '-' + mm + '-' + dd;
+
+
+
+ startDate.min = today;
+
+
+}
+
+   </script>
+
+                    <form action="" method="POST" class="contact-form"  enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="form-group row">
+                        <div class="col-md-12">
+                        <div class="row">
+                            <input type="hidden" id="pr" name="" value="{{ p }}" title=""  required="">
+
+                            <div class="col-lg-12">
+                                <input type="text" placeholder="Purpose of booking" oninput="checkDate();" name="forw" required="">
+                            </div>
+
+                            <div class="col-lg-12">
+                                <input type="date"  name="bodate" id="mdate" required="">
+                            </div>
+
+                            <div class="col-lg-12">
+                                <input type="number" placeholder="Number Of Hours" id="no" oninput="amount()" name="no"  required="">
+                            </div>
+                            <div class="col-lg-12">
+                                <input type="time"  name="ti"  required="">
+                            </div>
+                            <div class="col-lg-12">
+                                <input type="text" id="to"  name="to" placeholder="Total" readonly required="">
+                            </div>
+                            <div class="col-lg-12">
+                                {% if pack == "" %}
+                            <input type="hidden" id="pr" name="pck" value="" title=""  required="">
+                                {% else %}
+                                <input type="" id="pr" readonly name="pck" value="{{ pack }}" title=""  required="">
+                            {% endif %}
+                            </div>
+
+                            <div class="col-lg-12">
+                                <input type="text" name="na" placeholder="Card Holder Name" required="">
+                            </div>
+                            <div class="col-lg-12">
+                                <input type="text" name="card" pattern="[0-9]{12}" placeholder="Card No." required="">
+                            </div>
+                            <div class="col-lg-12">
+                                <input type="text" name="cvv" pattern="[0-9]{4}" placeholder="CVV"  required="">
+                            </div>
+                            <div class="col-lg-12">
+                                <input type="hidden" name="tf" value="{{ id }}" title=""  required="">
+                            </div>
+
+
+
+                            <div class="col-lg-12">
+                                <div align="center">
+                            <input type="submit" name="add" class="submit-btn contact-btn" value="BOOK AND PAY">
+                            <p>
+                    <a href="/user"><u><font color="red">cancel</font></u></a>
+                    </p>
+                </div>
+
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </form>
+
+
+                </div>
+
+{% endblock %}

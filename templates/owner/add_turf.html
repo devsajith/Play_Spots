@@ -1,0 +1,66 @@
+{% extends 'owner/owner_base.html' %}
+{% load static %}
+{% block content %}
+ {% if message %}
+         <script> alert("{{ message }}")</script>
+     {% endif %}
+<div class="hero-section set-bg" data-setbg="{% static 'img/contact-bg.jpg'%}" style="background-image: url(&quot;img/contact-bg.jpg&quot;);">
+       <br>
+            <br>
+    <h1 align="center"><font color="white" >ADD TURF</font></h1>
+    </div>
+   <div class="col-lg-4 mx-auto order-lg-2 align-self-center">
+
+                    <form action="" method="POST" class="contact-form"  enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="form-group row">
+                        <div class="col-md-12">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <input type="text" name="name" placeholder="Turf Name" required="">
+                            </div>
+                            <div class="col-lg-12">
+                                <textarea placeholder="description" required="" name="description"></textarea>
+                            </div>
+
+
+
+
+                            <div class="col-lg-12">
+                                <input type="text" name="location" placeholder="location" required="">
+                            </div>
+                            <div class="col-lg-12">
+                                <input type="Number" name="price" placeholder="Price/Hours" required="">
+                            </div>
+                            <div class="col-lg-12">
+                                <input type="file" name="image1" placeholder="image" title="Upload Turf Image.." required="">
+                            </div>
+                            <div class="col-lg-12">
+                                <input type="file" name="image2" placeholder="image" title="Upload More Image.."  required="">
+                            </div>
+                            <div class="col-lg-12">
+                                <input type="file" name="image3" placeholder="image" title="Upload More Image.."  required="">
+                            </div>
+                            <div class="col-lg-12">
+                                <textarea placeholder="Other Facilities.." required="" name="fec"></textarea>
+                            </div>
+
+
+                            <div class="col-lg-12">
+                                <div align="center">
+                            <input type="submit" name="add" class="submit-btn contact-btn" value="ADD TURF">
+                            <p>
+                    <a href="owner/"><u><font color="red">cancel</font></u></a>
+                    </p>
+                </div>
+
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </form>
+
+
+                </div>
+
+{% endblock %}

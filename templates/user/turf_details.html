@@ -1,0 +1,88 @@
+{% extends 'user/user_base.html' %}
+{% load static %}
+{% block content %}
+ {% if message %}
+         <script> alert("{{ message }}")</script>
+     {% endif %}
+
+<section class="lifestyle-section spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="lifestyle-text">
+                        <div class="section-title">
+                            <h2>{{ s.name }}</h2>
+                            <p>
+                                {{ s.descri }}
+                            </p>
+                            <p>
+                                Location: {{ s.location }}<br>
+                                Price/Hours: {{ s.price }}<br>
+
+                                Other Details: {{ s.facility }}<br>
+                            </p>
+                    <form method="get" action="BookTurf">
+                            Available Package: <input style="border:none" value="{{ p.pack }}" name="pack" readonly>
+                 <input style="border:none" value="{{ p.discount }}" name="dis" readonly>
+                 <input type="hidden" value="{{ p.id }}" name="pid" readonly>
+                 <input type="hidden" value="{{ s.id }}" name="tid" readonly>
+                 <input type="hidden" value="{{ s.price }}" name="tprice" readonly>
+                            <button type="submit" class="primary-btn">Book Now</button>
+                        </form>
+                        </div>
+                    </div>
+                </div>
+{#                {% for p in p %}#}
+
+
+{#                {% endfor %}#}
+                <div class="col-lg-6">
+                    <div class="lifestyle-img">
+                        <img src="img/lifestyle.jpg" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Lifestyles Section End -->
+    <!-- Boxes Section Begin -->
+    <div class="boxes-section">
+        <div class="container-fluid">
+            <div class="boxes-img">
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="boxes-item">
+                            <div class="boxes-pic">
+                                <img src="{{ s.image1.url }}" alt="">
+                                <div class="boxes-text">
+                                    <h1>image 1</h1>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="boxes-item">
+                            <div class="boxes-pic">
+                                <img src="{{ s.image2.url }}" alt="">
+                                <div class="boxes-text">
+                                    <h1>image 2</h1>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="boxes-item">
+                            <div class="boxes-pic">
+                                <img src="{{ s.image3.url }}" alt="">
+                                <div class="boxes-text">
+                                    <h1>image 3</h1>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

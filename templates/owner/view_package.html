@@ -1,0 +1,81 @@
+{% extends 'owner/owner_base.html' %}
+{% load static %}
+{% block content %}
+ {% if message %}
+         <script> alert("{{ message }}")</script>
+     {% endif %}
+<div class="hero-section set-bg" data-setbg="{% static 'img/contact-bg.jpg'%}" style="background-image: url(&quot;img/contact-bg.jpg&quot;);">
+       <br>
+            <br>
+    <h1 align="center"><font color="white" >VIEW PACKAGE DETAILS</font></h1>
+    </div>
+    <br>
+    <br>
+
+
+
+    <div class="site-section">
+      <div class="container">
+        <div class="row mb-5">
+          <form class="col-md-18" method="post" >
+            <div class="site-blocks-table">
+              <table class="table table-bordered" align="center">
+                <thead >
+                  <tr>
+
+                    <th class="product-name">Pack Details</th>
+                    <th class="product-name">Discount Details</th>
+
+                      <th class="product-email">From Date</th>
+                      <th class="product-email">To Date</th>
+                      <th class="product-email">Action</th>
+
+
+                  </tr>
+                </thead>
+                <tbody>
+                {% for ps in b %}
+                  <tr>
+                    <td class="product-name">
+
+                        <h2 class="h5 text-black">{{ ps.pack }}</h2>
+                    </td>
+
+
+                  <td class="product-email">
+
+                      <h2 class="h5 text-black">{{ ps.discount }}% Discount</h2>
+                    </td>
+                  <td class="product-email">
+                      <h2 class="h5 text-black">{{ ps.fdate }}</h2><br>
+
+                    </td>
+                      <td class="product-email">
+                      <h2 class="h5 text-black">{{ ps.tdate }}</h2><br>
+
+                    </td>
+
+                      <td class="product-email">
+
+                      <a href="DeletePack?id={{ ps.id }}" class="buy-now btn btn-sm height-auto px-12 py- primary-btn">Delete</a>
+                    </td>
+
+
+
+
+
+
+
+                  </tr>
+                {% endfor %}
+                </tbody>
+              </table>
+            </div>
+          </form>
+        </div>
+
+        </div>
+
+      </div>
+
+{% endblock %}
